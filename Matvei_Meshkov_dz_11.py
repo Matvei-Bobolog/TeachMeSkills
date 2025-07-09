@@ -22,11 +22,13 @@
 class Soda:
     def __init__(self, flavor=None):
         # TODO: сохранить вкус, если он задан
-        pass
+        self.flavor = flavor
 
     def __str__(self):
         # TODO: реализовать строковое представление
-        pass
+        if self.flavor is None:
+            return "У вас обычная газировка"
+        return f"У вас газировка с {self.flavor} вкусом"
 
 
 def test_soda():
@@ -49,19 +51,19 @@ def test_soda():
 class Math:
     def addition(self, a, b):
         # TODO: сложить и напечатать
-        pass
+        print(a + b)
 
     def subtraction(self, a, b):
         # TODO: вычесть и напечатать
-        pass
+        print(a - b)
 
     def multiplication(self, a, b):
         # TODO: умножить и напечатать
-        pass
+        print(a * b)
 
     def division(self, a, b):
         # TODO: разделить и напечатать
-        pass
+        print(a / b)
 
 
 def test_math():
@@ -87,27 +89,29 @@ def test_math():
 class Car:
     def __init__(self, color, type_, year):
         # TODO: сохранить параметры
-        pass
+        self.color = color
+        self.type = type_
+        self.year = year
 
     def start(self):
         # TODO: вывести "Автомобиль заведён"
-        pass
+        print("Автомобиль заведён")
 
     def stop(self):
         # TODO: вывести "Автомобиль заглушен"
-        pass
+        print("Автомобиль заглушен")
 
     def set_year(self, year):
         # TODO: задать год
-        pass
+        self.year = year
 
     def set_type(self, type_):
         # TODO: задать тип
-        pass
+        self.type = type_
 
     def set_color(self, color):
         # TODO: задать цвет
-        pass
+        self.color = color
 
 
 def test_car():
@@ -141,35 +145,40 @@ import math
 class Sphere:
     def __init__(self, radius=1.0, x=0.0, y=0.0, z=0.0):
         # TODO
-        pass
+        self.radius = radius
+        self.x = x
+        self.y = y
+        self.z = z
 
     def get_volume(self):
         # TODO
-        pass
+        return (4 / 3) * math.pi * (self.radius ** 3)
 
     def get_square(self):
         # TODO
-        pass
+        return 4 * math.pi * (self.radius ** 2)
 
     def get_radius(self):
         # TODO
-        pass
+        return self.radius
 
     def get_center(self):
         # TODO
-        pass
+        return (self.x, self.y, self.z)
 
     def set_radius(self, radius):
         # TODO
-        pass
+        self.radius = radius
 
     def set_center(self, x, y, z):
         # TODO
-        pass
+        self.x = x
+        self.y = y
+        self.z = z
 
     def is_point_inside(self, x, y, z):
         # TODO
-        pass
+        return math.sqrt( ((self.x - x) ** 2) + ((self.y - y) ** 2) + ((self.z - z) ** 2) ) <= self.radius
 
 
 def test_sphere():
@@ -197,11 +206,11 @@ def test_sphere():
 class SuperStr(str):
     def is_repeatance(self, s):
         # TODO
-        pass
+        return self.replace(s, "") == ""
 
     def is_palindrom(self):
         # TODO
-        pass
+        return self.lower() == self.lower()[::-1]
 
 
 def test_superstr():
