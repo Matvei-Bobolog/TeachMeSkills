@@ -137,6 +137,8 @@ class BeeElephant:
         elif meal == "grass":
             self.elephant_part += value
             self.bee_part -= value
+            self.elephant_part = min(max(self.elephant_part, 0), 100)
+            self.bee_part = min(max(self.bee_part, 0), 100)
         else:
             pass
 
@@ -206,7 +208,10 @@ class Bus:
         return surname in self.passengers
 
     def __iadd__(self, surname):
-        self.passengers.append(surname)
+        if self.not_full:
+            self.passengers.append(surname)
+        else:
+            print("Нет свободных мест")
         return self
 
     def __isub__(self, surname):
